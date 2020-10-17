@@ -38,7 +38,7 @@ public class PipeBlockEntity extends BlockEntity
     /**
      * The loaded nodes, server-side only.
      */
-    private SortedSet<PipeNetworkNode> pipes = new TreeSet<>(Comparator.comparing(PipeNetworkNode::getType));
+    private final SortedSet<PipeNetworkNode> pipes = new TreeSet<>(Comparator.comparing(PipeNetworkNode::getType));
     /**
      * The rendered connections, both client-side for rendering and server-side for
      * bounds check.
@@ -137,6 +137,7 @@ public class PipeBlockEntity extends BlockEntity
         if (removedPipe == null) {
             throw new IllegalArgumentException("Can't remove type " + type.getIdentifier() + " from BlockEntity at pos " + pos);
         }
+        removedPipe.onRemove();
         pipes.remove(removedPipe);
         removedPipe.getManager().removeNode(pos);
         onConnectionsChanged();
@@ -182,8 +183,8 @@ public class PipeBlockEntity extends BlockEntity
     @Override
     public void markRemoved() {
         loadPipes();
-        // TODO: drop items when necessary, probably not here
         for (PipeNetworkNode pipe : pipes) {
+            pipe.onRemove();
             pipe.getManager().removeNode(pos);
         }
         pipes.clear();
@@ -236,6 +237,7 @@ public class PipeBlockEntity extends BlockEntity
     public void onChunkUnload() {
         loadPipes();
         for (PipeNetworkNode pipe : pipes) {
+            pipe.onUnload();
             pipe.getManager().nodeUnloaded(pipe, pos);
         }
     }

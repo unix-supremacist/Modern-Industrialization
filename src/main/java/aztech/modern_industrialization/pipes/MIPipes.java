@@ -6,6 +6,7 @@ import alexiil.mc.lib.attributes.fluid.volume.FluidKeys;
 import aztech.modern_industrialization.MIIdentifier;
 import aztech.modern_industrialization.ModernIndustrialization;
 import aztech.modern_industrialization.api.energy.CableTier;
+import aztech.modern_industrialization.compat.appeng.AECompat;
 import aztech.modern_industrialization.pipes.api.*;
 import aztech.modern_industrialization.pipes.electricity.ElectricityNetwork;
 import aztech.modern_industrialization.pipes.electricity.ElectricityNetworkData;
@@ -54,8 +55,8 @@ public class MIPipes implements ModInitializer {
             .registerExtended(new MIIdentifier("item_pipe"), ItemPipeScreenHandler::new);
     public static final Set<Identifier> PIPE_MODEL_NAMES = new HashSet<>();
 
-    // TODO: move this to MIPipesClient ?
-    private static PipeRenderer.Factory makeRenderer(List<String> sprites, boolean innerQuads) {
+    // TODO: move this to MIPipesClient ? put this in the public API ?
+    public static PipeRenderer.Factory makeRenderer(List<String> sprites, boolean innerQuads) {
         return new PipeRenderer.Factory() {
             @Override
             public Collection<SpriteIdentifier> getSpriteDependencies() {
@@ -84,6 +85,9 @@ public class MIPipes implements ModInitializer {
         Registry.register(Registry.BLOCK, new MIIdentifier("pipe"), BLOCK_PIPE);
         BLOCK_ENTITY_TYPE_PIPE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new MIIdentifier("pipe"),
                 BlockEntityType.Builder.create(PipeBlockEntity::new, BLOCK_PIPE).build(null));
+
+        registerMeCable();
+
         registerFluidPipeType("gold", 255 << 24 | 255 << 16 | 225 << 8 | 0, 1000);
         registerFluidPipeType("aluminum", 255 << 24 | 63 << 16 | 202 << 8 | 255, 1000);
         registerFluidPipeType("steel", 255 << 24 | 63 << 16 | 63 << 8 | 63, 1000);
@@ -123,6 +127,16 @@ public class MIPipes implements ModInitializer {
         registerPackets();
     }
 
+    public void registerMeCable() {
+        if(AECompat.INSTANCE.isAvailable()) {
+            PipeNetworkType type = AECompat.INSTANCE.registerNetworkType();
+            Item item = new PipeItem(new Item.Settings().group(ModernIndustrialization.ITEM_GROUP), type, AECompat.INSTANCE.getItemData());
+            pipeItems.put(type, item);
+            Registry.register(Registry.ITEM, new MIIdentifier("me_cable"), item);
+            PIPE_MODEL_NAMES.add(new MIIdentifier("item/me_cable"));
+        }
+    }
+
     public void registerFluidPipeType(String name, int color, int nodeCapacity) {
         PipeNetworkType type = PipeNetworkType.register(new MIIdentifier("fluid_" + name), (id, data) -> new FluidNetwork(id, data, nodeCapacity),
                 FluidNetworkNode::new, color, false, FLUID_RENDERER);
@@ -150,7 +164,7 @@ public class MIPipes implements ModInitializer {
         PIPE_MODEL_NAMES.add(new MIIdentifier("item/pipe_electricity_" + name));
     }
 
-    public Item getPipeItem(PipeNetworkType type) {
+    public Item getPipeItem(PipeNetworkType type) { // TODO: move this into the API!
         return pipeItems.get(type);
     }
 

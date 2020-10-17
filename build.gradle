@@ -26,9 +26,18 @@ repositories {
         name = "BuildCraft"
         url = "https://mod-buildcraft.com/maven"
     }
+    // for NBT Crafting
     maven {
         name "Siphalor's Maven"
         url "https://maven.siphalor.de"
+    }
+    // for AE2
+    maven {
+        name "Modmaven"
+        url "https://modmaven.k-4u.nl"
+        content {
+            includeGroup "appeng"
+        }
     }
 }
 
@@ -54,6 +63,7 @@ dependencies {
     include "me.shedaniel.cloth.api:cloth-durability-bar-api-v1:${project.cloth_api_version}"
     modImplementation "de.siphalor:nbtcrafting-${project.nbt_crafting_version}"
     include "de.siphalor:nbtcrafting-${project.nbt_crafting_version}"
+    modImplementation "appeng:appliedenergistics2-fabric:${project.appeng_version}"
 }
 
 processResources {

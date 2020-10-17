@@ -55,4 +55,8 @@ public abstract class PipeNetworkNode {
     public boolean shouldSync() {
         return false;
     }
+
+    public void onUnload() { }
+
+    public void onRemove() { }
 }
