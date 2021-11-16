@@ -7,9 +7,7 @@
     "BlockApiCacheAccessor",
     "BlockMixin",
     "ItemStackMixin",
-    "LivingEntityElytraMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin",
     "PlayerEntitySteamDrillMixin",
     "PlayerEntityTickMixin",
     "PlayerInventoryMixin",
@@ -21,7 +19,6 @@
     "WorldChunkMixin"
   ],
   "client": [
-    "client.ClientPlayerEntityMixin",
     "client.ClientPlayerInteractionManagerMixin",
     "client.HandledScreenAccessor",
     "client.HeldItemRendererMixin"

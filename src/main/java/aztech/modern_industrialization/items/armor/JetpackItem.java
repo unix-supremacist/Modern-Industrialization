@@ -24,13 +24,14 @@
 package aztech.modern_industrialization.items.armor;
 
 import aztech.modern_industrialization.api.FluidFuelRegistry;
-import aztech.modern_industrialization.api.IElytraItem;
 import aztech.modern_industrialization.items.FluidFuelItemHelper;
 import aztech.modern_industrialization.mixin.ServerPlayNetworkHandlerAccessor;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import java.util.List;
 import me.shedaniel.cloth.api.armor.v1.TickableArmor;
+import net.fabricmc.fabric.api.entity.event.v1.EntityElytraEvents;
+import net.fabricmc.fabric.api.entity.event.v1.FabricElytraItem;
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
@@ -59,15 +60,20 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class JetpackItem extends ArmorItem implements Wearable, TickableArmor, IElytraItem, ActivatableChestItem {
+public class JetpackItem extends ArmorItem implements Wearable, TickableArmor, FabricElytraItem, ActivatableChestItem {
     public static final int CAPACITY = 8 * 81000;
+
+    static {
+        // TODO: remove, this is just for testing!
+        EntityElytraEvents.ALLOW.register(entity -> !entity.getOffHandStack().isOf(Items.TORCH));
+    }
 
     public JetpackItem(Settings settings) {
         super(buildMaterial(), EquipmentSlot.CHEST, settings.maxCount(1).rarity(Rarity.UNCOMMON));
     }
 
     @Override
-    public boolean allowElytraFlight(ItemStack stack, LivingEntity user) {
+    public boolean useCustomElytra(LivingEntity entity, ItemStack stack, boolean tickElytra) {
         return isActivated(stack) && FluidFuelItemHelper.getAmount(stack) > 0;
     }
 

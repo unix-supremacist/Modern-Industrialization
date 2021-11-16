@@ -137,7 +137,21 @@ repositories {
 
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'net.fabricmc.fabric-api' && details.requested.name == 'fabric-entity-events-v1' && details.requested.version != '1.3.1+65e03d6d18') {
+            details.useVersion '1.3.1+65e03d6d18'
+            details.because 'testing fabric elytra API'
+        }
+    }
+}
+
+
+
 dependencies {
+    // TODO: remove when merged!
+    include modImplementation("net.fabricmc.fabric-api:fabric-entity-events-v1:1.3.1+65e03d6d18")
+
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
