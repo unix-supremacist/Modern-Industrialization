@@ -3,11 +3,11 @@
   "eu": 64,
   "duration": 1500,
   "item_inputs": [{
-      "tag": "c:silicon_dusts",
+      "tag": "c:dusts/silicon",
       "amount": 32
     },
     {
-      "tag": "c:iridium_tiny_dusts",
+      "tag": "c:tiny_dusts/iridium",
       "amount": 1
     }
   ],

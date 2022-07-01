@@ -43,7 +43,7 @@ public class DyeRecipesProvider extends MIRecipesProvider {
             String pathPrefix = "dyes/" + color.getName() + "/";
             // 16 item pipes with dye in the center
             var itemPipesDirect = new ShapedRecipeJson("modern_industrialization:" + color.getName() + "_item_pipe", 16, "CCC", "GdG",
-                    "CCC").addInput('C', "modern_industrialization:bronze_curved_plate").addInput('G', "#c:steel_gears").addInput('d',
+                    "CCC").addInput('C', "modern_industrialization:bronze_curved_plate").addInput('G', "#c:gears/steel").addInput('d',
                             "#c:" + color.getName() + "_dyes");
             itemPipesDirect.offerTo(consumer, pathPrefix + "craft/item_pipe_direct");
             itemPipesDirect.exportToAssembler().offerTo(consumer, pathPrefix + "assembler/item_pipe_direct");

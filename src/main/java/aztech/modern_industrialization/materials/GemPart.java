@@ -44,7 +44,7 @@ public class GemPart extends Part implements BuildablePart {
     public MaterialPart build(MaterialBuilder.PartContext ctx) {
         return new RegularPart("", "gem").withRegister((partContext, part, itemPath, itemId, itemTag) -> {
             var item = RegularPart.createSimpleItem(partContext.getEnglishName(), itemPath, partContext, part);
-            TagsToGenerate.generateTag("c:" + itemPath, item.asItem());
+            TagsToGenerate.generateTag("c:" + part.key + "s/"+ partContext.getMaterialName()  , item.asItem());
         })
                 .withTextureRegister((mtm, partContext, part, itemPath) -> {
                     String template = String.format("modern_industrialization:textures/materialsets/gems/%s.png", partContext.getMaterialName());

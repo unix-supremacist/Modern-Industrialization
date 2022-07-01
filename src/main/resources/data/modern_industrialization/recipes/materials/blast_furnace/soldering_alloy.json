@@ -3,7 +3,7 @@
   "eu" : 4,
   "duration" : 600,
   "item_inputs" : {
-    "tag" : "c:soldering_alloy_dusts",
+    "tag" : "c:dusts/soldering_alloy",
     "amount" : 1
   },
   "fluid_outputs" : {

@@ -8,11 +8,11 @@
       "amount" : 1
     },
     {
-      "tag" : "c:beryllium_plates",
+      "tag" : "c:plates/beryllium",
       "amount" : 1
     },
     {
-      "tag" : "c:cadmium_plates",
+      "tag" : "c:plates/cadmium",
       "amount" : 1
     }
   ],

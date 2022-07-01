@@ -3,7 +3,7 @@
   "eu": 60,
   "duration": 0,
   "item_inputs": {
-    "tag": "c:copper_ores",
+    "tag": "c:ores/copper",
     "amount": 1
   },
   "item_outputs": {

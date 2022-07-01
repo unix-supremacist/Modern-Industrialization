@@ -125,7 +125,7 @@ public class OrePart extends UnbuildablePart<OrePart.OrePartParams> {
                         throw new IllegalArgumentException("Mismatch between raw ore and xp drops for material: " + partContext.getMaterialName());
                     }
 
-                    String tag = "c:" + partContext.getMaterialName() + "_ores";
+                    String tag = "c:ores/" + partContext.getMaterialName();
 
                     TagsToGenerate.generateTag(tag, oreBlockBlockDefinition.asItem());
                     TagsToGenerate.addTagToTag(tag, ConventionalItemTags.ORES.location().toString());

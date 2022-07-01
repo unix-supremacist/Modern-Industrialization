@@ -245,7 +245,7 @@ public class RegularPart extends Part implements BuildablePart {
         String itemTag;
 
         if (MIParts.TAGGED_PARTS.contains(this)) {
-            itemTag = "#c:" + ctx.getMaterialName() + "_" + key + "s";
+            itemTag = "#c:" + key + "s/" + ctx.getMaterialName();
         } else {
             itemTag = itemId;
         }

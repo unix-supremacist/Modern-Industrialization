@@ -75,7 +75,7 @@ public class CompatRecipesProvider extends MIRecipesProvider {
         addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "minecraft:prismarine_crystals", "minecraft:prismarine_shard", 1); // TODO
         addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "techreborn:red_garnet_dust", "techreborn:red_garnet_plate", 1);
         addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "minecraft:redstone_block", "techreborn:redstone_plate", 1);
-        addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "#c:ruby_dusts", "techreborn:ruby_plate", 1);
+        addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "#c:dusts/ruby", "techreborn:ruby_plate", 1);
         addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "#c:sapphire_dusts", "techreborn:sapphire_plate", 1);
         addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "techreborn:tungstensteel_ingot", "techreborn:tungstensteel_plate", 1);
         addMiRecipe(MIMachineRecipeTypes.COMPRESSOR, "#minecraft:planks", "techreborn:wood_plate", 1);

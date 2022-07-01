@@ -40,14 +40,14 @@ public class AlloyRecipesProvider extends MIRecipesProvider {
     @Override
     protected void generateRecipes(Consumer<FinishedRecipe> consumer) {
         new AlloyBuilder("bronze").addIngredient("tin", 1).addIngredient("copper", 3).Build(consumer);
-        new AlloyBuilder("battery_alloy").addIngredient("lead", 1).addIngredient("antimony", 1).Build(consumer);
+        new AlloyBuilder("battery_alloy").addIngredient("lead", 4).addIngredient("antimony", 1).Build(consumer);
         new AlloyBuilder("cupronickel").addIngredient("copper", 1).addIngredient("nickel", 1).Build(consumer);
         new AlloyBuilder("invar").addIngredient("iron", 2).addIngredient("nickel", 1).Build(consumer);
         new AlloyBuilder("electrum").addIngredient("gold", 1).addIngredient("silver", 1).Build(consumer);
         new AlloyBuilder("stainless_steel").addIngredient("iron", 6).addIngredient("chromium", 1).addIngredient("nickel", 1)
                 .addIngredient("manganese", 1).Build(consumer);
         new AlloyBuilder("kanthal").addIngredient("stainless_steel", 1).addIngredient("chromium", 1).addIngredient("aluminum", 1).Build(consumer);
-        new AlloyBuilder("soldering_alloy").addIngredient("tin", 1).addIngredient("lead", 1).Build(consumer);
+        new AlloyBuilder("soldering_alloy").addIngredient("tin", 9).addIngredient("antimony", 1).Build(consumer);
 
         new AlloyBuilder("le_uranium").addIngredient("uranium_238", 8).addIngredient("uranium_235", 1).Build(consumer);
         new AlloyBuilder("he_uranium").addIngredient("uranium_238", 6).addIngredient("uranium_235", 3).Build(consumer);
@@ -72,7 +72,7 @@ public class AlloyRecipesProvider extends MIRecipesProvider {
         }
 
         public AlloyBuilder addIngredient(String ingredient, int amount) {
-            if (totalAmount + amount <= 9) {
+            if (totalAmount + amount <= 10) {
                 if (!ingredients.contains(ingredient)) {
                     totalAmount += amount;
                     ingredients.add(ingredient);
@@ -83,7 +83,7 @@ public class AlloyRecipesProvider extends MIRecipesProvider {
                 }
 
             } else {
-                throw new IllegalArgumentException("Alloy with more than 9 dusts");
+                throw new IllegalArgumentException("Alloy with more than 10 dusts");
             }
             return this;
         }
@@ -97,8 +97,8 @@ public class AlloyRecipesProvider extends MIRecipesProvider {
                 for (int j = 0; j < n; j++) {
                     ShapelessRecipeJson.Ingredient dustIngredient = new ShapelessRecipeJson.Ingredient();
                     ShapelessRecipeJson.Ingredient tinyDustIngredient = new ShapelessRecipeJson.Ingredient();
-                    dustIngredient.tag = "c:" + ingredients.get(i) + "_dusts";
-                    tinyDustIngredient.tag = "c:" + ingredients.get(i) + "_tiny_dusts";
+                    dustIngredient.tag = "c:dusts/" + ingredients.get(i);
+                    tinyDustIngredient.tag = "c:tiny_dusts/" + ingredients.get(i);
                     dusts.addIngredient(dustIngredient);
                     tinyDusts.addIngredient(tinyDustIngredient);
                 }

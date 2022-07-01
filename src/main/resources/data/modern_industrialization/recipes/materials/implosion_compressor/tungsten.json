@@ -4,11 +4,11 @@
   "duration": 10,
   "item_inputs": [
     {
-      "tag": "c:tungsten_tiny_dusts",
+      "tag": "c:tiny_dusts/tungsten",
       "amount": 9
     },
     {
-      "tag": "c:stainless_steel_nuggets",
+      "tag": "c:nuggets/stainless_steel",
       "amount": 1
     },
     {

@@ -224,8 +224,8 @@ public class MIMaterials {
                 .addMaterial(new MaterialBuilder("Redstone", "redstone", STONE, DUST, new BakableTargetColoramp(0xd20000, common(DUST), mcitem("redstone")), SOFT)
                         .addParts(TINY_DUST, CRUSHED_DUST, BATTERY).addParts(ExternalPart.of(DUST, "minecraft:redstone", "minecraft:redstone"))
                         .addParts(ExternalPart.of(BLOCK, "#c:redstone_blocks", "minecraft:redstone_block"))
-                        .addParts(ExternalPart.of(ORE, "#c:redstone_ores", "minecraft:redstone_ore"))
-                        .addParts(ExternalPart.of(ORE_DEEPLSATE, "#c:redstone_ores", "minecraft:deepslate_redstone_ore"))
+                        .addParts(ExternalPart.of(ORE, "#c:ores/redstone", "minecraft:redstone_ore"))
+                        .addParts(ExternalPart.of(ORE_DEEPLSATE, "#c:ores/redstone", "minecraft:deepslate_redstone_ore"))
                         .addRecipes(StandardRecipes::apply, SmeltingRecipes::apply).cancelRecipes("macerator/ore_to_crushed")
                         .cancelRecipes("craft/block_from_dust", "craft/dust_from_block").build());
 

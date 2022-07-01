@@ -100,7 +100,7 @@ public class MIParts {
     public static final BuildablePart[] ITEM_PURE_METAL = new BuildablePart[] { INGOT, NUGGET, TINY_DUST, DUST };
 
     public static final List<Part> TAGGED_PARTS_LIST = Arrays.asList(BLOCK, DUST, GEAR, INGOT, NUGGET, ORE, PLATE, TINY_DUST, RAW_METAL,
-            RAW_METAL_BLOCK);
+            RAW_METAL_BLOCK, WIRE, ROD, BOLT, ROTOR, RING, BLADE, HOT_INGOT, DOUBLE_INGOT, FINE_WIRE, CURVED_PLATE);
     public static final Set<Part> TAGGED_PARTS = new HashSet<>(TAGGED_PARTS_LIST);
 
     public static final Part[] BLOCKS = { ORE, BARREL, BLOCK, COIL, MACHINE_CASING, MACHINE_CASING_SPECIAL, MACHINE_CASING_PIPE, RAW_METAL_BLOCK };

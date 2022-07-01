@@ -80,33 +80,33 @@ public class MIItemTagProvider extends FabricTagProvider.ItemTagProvider {
     }
 
     private void generatedConventionTag() {
-        tag(key("c:iron_nuggets")).add(Items.IRON_NUGGET);
-        tag(key("c:iron_blocks")).add(Items.IRON_BLOCK);
-        tag(key("c:iron_ores")).forceAddTag(ItemTags.IRON_ORES);
+        tag(key("c:nuggets/iron")).add(Items.IRON_NUGGET);
+        tag(key("c:blocks/iron")).add(Items.IRON_BLOCK);
+        tag(key("c:ores/iron")).forceAddTag(ItemTags.IRON_ORES);
 
-        tag(key("c:copper_blocks")).add(Items.COPPER_BLOCK);
-        tag(key("c:copper_ores")).forceAddTag(ItemTags.COPPER_ORES);
+        tag(key("c:blocks/copper")).add(Items.COPPER_BLOCK);
+        tag(key("c:ores/copper")).forceAddTag(ItemTags.COPPER_ORES);
 
-        tag(key("c:gold_nuggets")).add(Items.GOLD_NUGGET);
-        tag(key("c:gold_blocks")).add(Items.GOLD_BLOCK);
-        tag(key("c:gold_ores")).forceAddTag(ItemTags.GOLD_ORES);
+        tag(key("c:nuggets/gold")).add(Items.GOLD_NUGGET);
+        tag(key("c:blocks/gold")).add(Items.GOLD_BLOCK);
+        tag(key("c:ores/gold")).forceAddTag(ItemTags.GOLD_ORES);
 
-        tag(key("c:coal_blocks")).add(Items.COAL_BLOCK);
-        tag(key("c:coal_ores")).forceAddTag(ItemTags.COAL_ORES);
+        tag(key("c:blocks/coal")).add(Items.COAL_BLOCK);
+        tag(key("c:ores/coal")).forceAddTag(ItemTags.COAL_ORES);
 
-        tag(key("c:redstone_blocks")).add(Items.REDSTONE_BLOCK);
-        tag(key("c:redstone_ores")).forceAddTag(ItemTags.REDSTONE_ORES);
+        tag(key("c:blocks/redstone")).add(Items.REDSTONE_BLOCK);
+        tag(key("c:ores/redstone")).forceAddTag(ItemTags.REDSTONE_ORES);
 
-        tag(key("c:emerald_blocks")).add(Items.EMERALD_BLOCK);
-        tag(key("c:emerald_ores")).forceAddTag(ItemTags.EMERALD_ORES);
+        tag(key("c:blocks/emerald")).add(Items.EMERALD_BLOCK);
+        tag(key("c:ores/emerald")).forceAddTag(ItemTags.EMERALD_ORES);
 
-        tag(key("c:diamond_blocks")).add(Items.DIAMOND_BLOCK);
-        tag(key("c:diamond_ores")).forceAddTag(ItemTags.DIAMOND_ORES);
+        tag(key("c:blocks/diamond")).add(Items.DIAMOND_BLOCK);
+        tag(key("c:ores/diamond")).forceAddTag(ItemTags.DIAMOND_ORES);
 
-        tag(key("c:lapis_blocks")).add(Items.LAPIS_BLOCK);
-        tag(key("c:lapis_ores")).forceAddTag(ItemTags.LAPIS_ORES);
+        tag(key("c:blocks/lapis")).add(Items.LAPIS_BLOCK);
+        tag(key("c:ores/lapis")).forceAddTag(ItemTags.LAPIS_ORES);
 
-        tag(key("c:quartz_ores")).add(Items.NETHER_QUARTZ_ORE);
+        tag(key("c:ores/quartz")).add(Items.NETHER_QUARTZ_ORE);
 
         ResourceLocation terracottas = new ResourceLocation("c", "terracottas");
         tag(key(terracottas)).add(Items.TERRACOTTA);

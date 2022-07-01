@@ -7,7 +7,7 @@
   ],
   "key": {
     "#": {
-      "tag": "c:steel_plates"
+      "tag": "c:plates/steel"
     },
     "F": {
       "item": "minecraft:furnace"

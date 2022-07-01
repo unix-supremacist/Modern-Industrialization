@@ -7,10 +7,10 @@
   ],
   "key": {
     "I": {
-      "tag": "c:steel_blocks"
+      "tag": "c:blocks/steel"
     },
     "i": {
-      "tag": "c:steel_ingots"
+      "tag": "c:ingots/steel"
     }
   },
   "result": {

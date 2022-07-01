@@ -4,7 +4,7 @@
   "duration": 200,
   "item_inputs": [
     {
-      "tag": "c:steel_plates",
+      "tag": "c:plates/steel",
       "amount": 5
     },
     {

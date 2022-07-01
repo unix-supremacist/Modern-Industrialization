@@ -69,9 +69,9 @@ public class RawMetalPart extends UnbuildablePart<MaterialRawSet> {
         });
 
         if (isBlock) {
-            return part.withCustomFormattablePath("raw_%s_block", "raw_%s_blocks");
+            return part.withCustomFormattablePath("raw_%s_block", "raw_blocks/%s");
         } else {
-            return part.withCustomFormattablePath("raw_%s", "raw_%s_ores");
+            return part.withCustomFormattablePath("raw_%s", "raw_materials/%s");
         }
 
     }
